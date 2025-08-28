@@ -1,0 +1,10 @@
+@import 'tailwindcss';
+
+.btn{
+  @apply text-white font-bold cursor-pointer border px-5 py-1 rounded-full hover:bg-white hover:text-[rgb(28,68,120)] duration-200
+}
+
+.studentLogin{
+  @apply bg-blue-200;
+  height: 100vh;
+}
