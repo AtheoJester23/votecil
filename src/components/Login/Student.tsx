@@ -1,6 +1,13 @@
+import { useEffect, useRef } from 'react';
 import stuLogPic from '../../assets/6974903_4428.jpg'
 
 const Student = () => {
+    const usrNm = useRef<HTMLInputElement>(null)
+
+    useEffect(()=>{
+        usrNm.current?.focus();
+    }, [])
+
     function showPass(){
         let visibility = document.getElementById("stuPass") as HTMLInputElement
         visibility.type = visibility.type === "password" ? "text" : "password";
@@ -20,7 +27,7 @@ const Student = () => {
                         <div className='flex flex-col w-full gap-3'>
                             <div className='flex flex-col gap-2'>
                                 <label htmlFor="stuNum">Student Number</label>
-                                <input type="text" name='stuNum' id='stuNum' className='textInput' placeholder='Ex. 2025500110'/>
+                                <input type="text" name='stuNum' id='stuNum' className='textInput' placeholder='Ex. 2025500110' ref={usrNm}/>
                             </div>
 
                             <div className='flex flex-col gap-2'>
