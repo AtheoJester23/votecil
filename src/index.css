@@ -4,8 +4,20 @@ body{
   font-family: 'Mulish', sans-serif;
 }
 
-.btn{
+.loginBtn{
   @apply text-white font-bold cursor-pointer border px-5 py-1 rounded-full hover:bg-white hover:text-[rgb(28,68,120)] duration-200
+}
+
+.inputs{
+  @apply flex flex-col
+}
+
+.login{
+  @apply bg-[rgb(28,68,120)] text-white rounded py-2 hover:cursor-pointer hover:bg-blue-200 hover:text-[rgb(28,68,120)] duration-200;
+}
+
+.login:hover{
+  box-shadow: inset 1px 1px 2px gray
 }
 
 /* ---------------------------------------------------------- */
@@ -45,7 +57,7 @@ body{
   gap: 30px;
 }
 
-.stuLogForm h1{
+.loginHeaders{
   @apply font-bold text-[25px];
   margin: 0px 50px
 }
@@ -57,3 +69,12 @@ body{
 }
 
 /* ---------------------------------------------------------- */
+/* Admin Login */
+
+.adminLogin{
+  @apply bg-blue-200;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+

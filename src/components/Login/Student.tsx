@@ -1,6 +1,11 @@
 import stuLogPic from '../../assets/6974903_4428.jpg'
 
 const Student = () => {
+    function showPass(){
+        let visibility = document.getElementById("stuPass") as HTMLInputElement
+        visibility.type = visibility.type === "password" ? "text" : "password";
+    }
+
     return (  
         <div className="studentLogin">
             <div className="loginContainer">
@@ -10,7 +15,7 @@ const Student = () => {
 
                 <div className='stuLogCont'>
                     <form className='stuLogForm'>
-                        <h1>Login as a Student User</h1>
+                        <h1 className='loginHeaders'>Login as a Student User</h1>
                     
                         <div className='flex flex-col w-full gap-3'>
                             <div className='flex flex-col gap-2'>
@@ -23,11 +28,11 @@ const Student = () => {
                                 <input type="password" name='stuPass' id='stuPass' className='textInput' placeholder="*********"/>
                             
                                 <div className='flex gap-2'>
-                                    <input type="checkbox" />
+                                    <input type="checkbox" onClick={() => showPass()}/>
                                     <label htmlFor="showPass">Show password</label>
                                 </div>
                             
-                                <button className='bg-[rgb(28,68,120)] text-white rounded py-2'>Login</button>
+                                <button className='login'>Login</button>
                             </div>
                         </div>
                     </form>
