@@ -1,4 +1,12 @@
+import { useEffect, useRef } from "react";
+
 const Admin = () => {
+    const adminUsrnm = useRef<HTMLInputElement>(null)
+
+    useEffect(()=> {
+        adminUsrnm.current?.focus();
+    }, [])
+
     function revealPass(){
         let pass = document.getElementById("adminPass") as HTMLInputElement
         pass.type = pass.type == "password" ? "text" : "password" 
@@ -12,7 +20,7 @@ const Admin = () => {
                 <div className="flex flex-col w-full gap-3">
                     <div className="inputs">
                         <label htmlFor="username">Username</label>
-                        <input type="text" id="username" name="username" className="textInput bg-white" placeholder="Admin Username"/>
+                        <input ref={adminUsrnm} type="text" id="username" name="username" className="textInput bg-white" placeholder="Admin Username"/>
                     </div>
                     <div className="inputs flex flex-col gap-1">
                         <label htmlFor="adminPass">Password</label>
