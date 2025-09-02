@@ -4,8 +4,75 @@ body{
   font-family: 'Mulish', sans-serif;
 }
 
+/* Navbar */
+
+.Navbar{
+  @apply flex justify-end bg-[rgb(28,68,120)] p-5;
+}
+
+.darkNavbar{
+  @apply flex justify-end bg-[rgb(11,11,11)] p-5;
+}
+
+.lightBtn{
+  @apply py-1 px-5 border rounded-full text-white hover:cursor-pointer font-bold;
+  transition: 0.15s background-color;
+}
+
+.lightBtn:hover{
+  background-color: white;
+  border: white;
+  color: rgb(28,68,120);
+}
+
+.darkBtn{
+  @apply py-1 px-5 rounded-full text-white hover:cursor-pointer font-bold;
+  border: solid;
+  border-width: 1px;
+  transition: 0.15s background-color;
+}
+
+.darkBtn:hover{
+  background-color: white;
+  color: rgb(11,11,11);
+}
+
+.adminOpt{
+  @apply cursor-pointer bg-[rgb(28,68,120)] text-white px-5 py-2 rounded-s-full hover:bg-blue-200 hover:text-[rgb(28,68,120)] duration-150
+}
+
+.adminOptDark{
+  @apply cursor-pointer bg-[rgb(11,11,11)] text-white px-5 py-2 rounded-s-full duration-150;
+}
+
+.adminOptDark:hover,
+.stuOptDark:hover{
+  background-color: rgb(32, 32, 32);
+  color: white;
+}
+
+.stuOpt{
+  @apply cursor-pointer bg-[rgb(28,68,120)] text-white px-5 py-2 rounded-e-full hover:bg-blue-200 hover:text-[rgb(28,68,120)] duration-150 rounded-e-full;
+}
+
+.stuOptDark{
+  @apply cursor-pointer bg-[rgb(11,11,11)] text-white px-5 py-2 rounded-e-full duration-150 rounded-e-full
+}
+
+/* -------------------------------------------------------------------------------------------------------------- */
+
 .loginBtn{
-  @apply text-white font-bold cursor-pointer border px-5 py-1 rounded-full hover:bg-white hover:text-[rgb(28,68,120)] duration-200
+  @apply text-white font-bold cursor-pointer border px-5 py-1 rounded-full hover:bg-white hover:text-[rgb(28,68,120)] duration-100
+}
+
+.loginBtnDark{
+  @apply text-white font-bold cursor-pointer border px-5 py-1 rounded-full;
+  transition: 0.15s background-color;
+}
+
+.loginBtnDark:hover{
+  background-color: white;
+  color: rgb(11,11,11);
 }
 
 .inputs{
