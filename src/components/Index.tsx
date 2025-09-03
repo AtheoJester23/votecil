@@ -3,64 +3,59 @@ import Img4585 from '../assets/4585.jpg'
 import { useEffect, useState } from "react";
 
 
+export const AnothaComponent = ({prop}: {prop: any[]}) => {
+    return(
+        <div>
+            {prop.id}
+        </div>
+    )
+}
+
 const Index = () => {
-    const [datahandler, setDatahandler] = useState<any[]>([]);
-    const [nextPage, setNextPage] = useState<number>(0)
+    const [data, setData] = useState<any[]>([])
+    const [pageNum, setPageNum] = useState<number>(0);
 
-    const fetchNew = (thePage: number) =>{
-        fetchData(thePage)
-            .then(item => {
-                if(!item) {
-                    setDatahandler([...datahandler, { id: "end", name: "The end" }]);
-                    return;
-                }
+    const fetchData = async () => {
+        let result = [];
 
-                const newStuff = [
-                    ...datahandler,
-                    item
-                ]
-
-                setDatahandler(newStuff)
-                setNextPage(thePage + 1);
-            })
-    }
-
-    useEffect(() => {
-        fetchNew(nextPage);
-    }, [])
-
-    const fetchData = async (nextPage: number) => {
         try {
-            let response = await fetch(`https://pokemonsimulation-7b844-default-rtdb.firebaseio.com/${nextPage}.json`)
+            const response = await fetch(`https://pokemonsimulation-7b844-default-rtdb.firebaseio.com/${pageNum}.json`);
+            
             if(!response.ok){
-                throw new Error(`Fetch failed: ${response.status}`)
+                throw new Error(`${response.status}`)
             }
 
-            let data = await response.json();
+            const data = await response.json();
 
-            return data;
+            result.push(data);
+
+            setData((prev) => [...prev, data])
+            setPageNum(pageNum + 1)
+
+            return result
         } catch (error) {
-            console.error(error)
-        }      
+            console.error(error as Error)
+        }
     }
 
     return (  
-        <div>
+        <div className="dark:bg-[rgb(15,15,15)]">
             <Navbar/>
             <img src={Img4585} alt="Front Page Introduction" className="w-[70%] h-full p-5 mx-auto"/>
-        
-            <button onClick={() => fetchNew(nextPage + 3)} className="bg-green-500 text-white font-bold px-5 py-2 rounded -translate-y-0.5 hover:translate-none duration-150 cursor-pointer">Fetch</button>
-        
-            {datahandler && (
-                datahandler.map(item => (
-                    <div key={item.id}>
-                        {item.name}
-                    </div>
-                ))
+
+            <button onClick={()=>fetchData()} className="bg-green-500 px-5 py-1 font-bold rounded-full m-5 -translate-y-0.25 hover:translate-none duration-200 cursor-pointer">fetch</button>
+
+            <pre className="bg-gray-100 p-3 rounded-lg w-[70%] mx-auto overflow-auto">
+                {data ? JSON.stringify(data) : "No data yet..."}
+            </pre>
+
+            {data.length > 0 && (
+                <div>
+                    {data.map((item) => (
+                        <AnothaComponent key={item.id} prop={item}/>
+                    ))}
+                </div>
             )}
-
-            {/* <p>{datahandler}</p> */}
-
         </div>
     );
 }

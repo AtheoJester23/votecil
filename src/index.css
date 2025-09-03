@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 body{
   font-family: 'Mulish', sans-serif;
 }
@@ -7,72 +9,25 @@ body{
 /* Navbar */
 
 .Navbar{
-  @apply flex justify-end bg-[rgb(28,68,120)] p-5;
+  @apply flex justify-end bg-[rgb(28,68,120)] p-5 dark:bg-[rgb(11,11,11)];
 }
 
-.darkNavbar{
-  @apply flex justify-end bg-[rgb(11,11,11)] p-5;
-}
-
-.lightBtn{
-  @apply py-1 px-5 border rounded-full text-white hover:cursor-pointer font-bold;
-  transition: 0.15s background-color;
-}
-
-.lightBtn:hover{
-  background-color: white;
-  border: white;
-  color: rgb(28,68,120);
-}
-
-.darkBtn{
-  @apply py-1 px-5 rounded-full text-white hover:cursor-pointer font-bold;
-  border: solid;
-  border-width: 1px;
-  transition: 0.15s background-color;
-}
-
-.darkBtn:hover{
-  background-color: white;
-  color: rgb(11,11,11);
+.toggleBtn{
+   @apply hover:bg-white hover:text-[rgb(28,68,120)] py-1 px-5 border rounded-full text-white hover:cursor-pointer font-bold dark:hover:bg-white dark:hover:text-[rgb(11,11,11)] duration-150;
 }
 
 .adminOpt{
-  @apply cursor-pointer bg-[rgb(28,68,120)] text-white px-5 py-2 rounded-s-full hover:bg-blue-200 hover:text-[rgb(28,68,120)] duration-150
-}
-
-.adminOptDark{
-  @apply cursor-pointer bg-[rgb(11,11,11)] text-white px-5 py-2 rounded-s-full duration-150;
-}
-
-.adminOptDark:hover,
-.stuOptDark:hover{
-  background-color: rgb(32, 32, 32);
-  color: white;
+  @apply cursor-pointer bg-[rgb(28,68,120)] text-white px-5 py-2 rounded-s-full hover:bg-blue-200 hover:text-[rgb(28,68,120)] duration-150 dark:bg-[rgb(11,11,11)] dark:hover:bg-[rgb(32,32,32)] dark:hover:text-white
 }
 
 .stuOpt{
-  @apply cursor-pointer bg-[rgb(28,68,120)] text-white px-5 py-2 rounded-e-full hover:bg-blue-200 hover:text-[rgb(28,68,120)] duration-150 rounded-e-full;
-}
-
-.stuOptDark{
-  @apply cursor-pointer bg-[rgb(11,11,11)] text-white px-5 py-2 rounded-e-full duration-150 rounded-e-full
+  @apply cursor-pointer bg-[rgb(28,68,120)] text-white px-5 py-2 rounded-e-full hover:bg-blue-200 hover:text-[rgb(28,68,120)] duration-150 rounded-e-full dark:bg-[rgb(11,11,11)] dark:hover:bg-[rgb(32,32,32)] dark:hover:text-white;
 }
 
 /* -------------------------------------------------------------------------------------------------------------- */
 
 .loginBtn{
-  @apply text-white font-bold cursor-pointer border px-5 py-1 rounded-full hover:bg-white hover:text-[rgb(28,68,120)] duration-100
-}
-
-.loginBtnDark{
-  @apply text-white font-bold cursor-pointer border px-5 py-1 rounded-full;
-  transition: 0.15s background-color;
-}
-
-.loginBtnDark:hover{
-  background-color: white;
-  color: rgb(11,11,11);
+  @apply text-white font-bold cursor-pointer border px-5 py-1 rounded-full hover:bg-white hover:text-[rgb(28,68,120)] duration-150 dark:hover:text-[rgb(11,11,11)]
 }
 
 .inputs{
@@ -80,7 +35,7 @@ body{
 }
 
 .login{
-  @apply bg-[rgb(28,68,120)] text-white rounded py-2 hover:cursor-pointer hover:bg-blue-200 hover:text-[rgb(28,68,120)] duration-200;
+  @apply bg-[rgb(28,68,120)] text-white rounded py-2 hover:cursor-pointer hover:bg-blue-200 hover:text-[rgb(28,68,120)] duration-200 dark:bg-[rgb(11,11,11)] dark:hover:bg-[rgb(32,32,32)] dark:hover:text-white;
 }
 
 .login:hover{
@@ -91,7 +46,7 @@ body{
 /* Student Login Page */
 
 .studentLogin{
-  @apply bg-blue-200;
+  @apply bg-blue-200 dark:bg-[rgb(11,11,11)];
   height: 100vh;
   display: grid;
   place-items: center;
@@ -125,7 +80,7 @@ body{
 }
 
 .loginHeaders{
-  @apply font-bold text-[25px];
+  @apply font-bold text-[25px] dark:text-white;
   margin: 0px 50px
 }
 
@@ -139,7 +94,7 @@ body{
 /* Admin Login */
 
 .adminLogin{
-  @apply bg-blue-200;
+  @apply bg-blue-200 dark:bg-[rgb(15,15,15)];
   display: grid;
   place-items: center;
   height: 100vh;

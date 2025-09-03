@@ -19,15 +19,15 @@ const Admin = () => {
                 
                 <div className="flex flex-col w-full gap-3">
                     <div className="inputs">
-                        <label htmlFor="username">Username</label>
+                        <label htmlFor="username" className="dark:text-white">Username</label>
                         <input ref={adminUsrnm} type="text" id="username" name="username" className="textInput bg-white" placeholder="Admin Username"/>
                     </div>
                     <div className="inputs flex flex-col gap-1">
-                        <label htmlFor="adminPass">Password</label>
+                        <label htmlFor="adminPass" className="dark:text-white">Password</label>
                         <input type="password" id="adminPass" name="adminPass" className="textInput bg-white" placeholder="*******"/>
                         <div className="flex gap-2 items-center">
                             <input onClick={()=> revealPass()} type="checkbox" name="showPass" id="showPass" />
-                            <p>Show Password</p>
+                            <p className="dark:text-white">Show Password</p>
                         </div>
                     </div>
 

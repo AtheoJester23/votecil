@@ -16,16 +16,16 @@ const Navbar = () => {
     }
 
     return (  
-        <div className={`${theme == "Light" ? "Navbar" : "darkNavbar"}`}>
+        <div className="Navbar">
             <div className="relative flex gap-2">
-                <button onClick={toggleTheme} className={theme == "Light" ? "lightBtn" : "darkBtn"}>{theme}</button>
+                <button onClick={toggleTheme} className="toggleBtn">{theme}</button>
 
-                <button onClick={() => handleLogin(logBtn)} className={theme == "Light" ? "loginBtn" : "loginBtnDark"}>Login</button>
+                <button onClick={() => handleLogin(logBtn)} className="loginBtn">Login</button>
 
                 {!logBtn && (
                     <div id="option" className="absolute right-0 top-10 bg-white flex justify-center items-center rounded-full px-5 py-3 gap-2 shadow-md">
-                        <Link to={"/adminLogin"} className={theme == "Light" ? "adminOpt" : "adminOptDark"}>Admin</Link>
-                        <Link to={"/studentLogin"} className={theme == "Light" ? "stuOpt" : "stuOptDark"}>Student</Link>
+                        <Link to={"/adminLogin"} className="adminOpt">Admin</Link>
+                        <Link to={"/studentLogin"} className="stuOpt">Student</Link>
                     </div>
                 )}
             </div>
