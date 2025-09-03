@@ -1,0 +1,1 @@
+export const getAdmin = `*[_type == "admin"]{adminname, email, password}`

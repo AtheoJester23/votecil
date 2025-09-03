@@ -1,10 +1,18 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { client } from "../../sanity/lib/client";
+import { getAdmin } from "../../sanity/lib/queries";
 
 const Admin = () => {
     const adminUsrnm = useRef<HTMLInputElement>(null)
+    const [admins, setAdmins] = useState([])
 
     useEffect(()=> {
         adminUsrnm.current?.focus();
+        
+        client
+            .fetch(getAdmin)
+            .then((data) => setAdmins(data))
+            .catch(console.error)
     }, [])
 
     function revealPass(){
@@ -31,7 +39,7 @@ const Admin = () => {
                         </div>
                     </div>
 
-                    <button className="login mt-3">Login</button>
+                    <button type="button" onClick={()=>console.log(admins)} className="login mt-3">Login</button>
                 </div>
                 
             </form>
