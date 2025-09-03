@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
+import { Moon, Sun } from "lucide-react";
 
 const Navbar = () => {
     const {theme, toggleTheme} = useTheme()
@@ -18,7 +19,13 @@ const Navbar = () => {
     return (  
         <div className="Navbar">
             <div className="relative flex gap-2">
-                <button onClick={toggleTheme} className="toggleBtn">{theme}</button>
+                <button onClick={toggleTheme} className="toggleBtn flex gap-1 justify-center items-center">
+                    {theme == "light" ? 
+                        <Sun className="h-[20px]" size="100%"/>
+                    :
+                        <Moon className="h-[20px]" size="100%"/>
+                    }
+                </button>
 
                 <button onClick={() => handleLogin(logBtn)} className="loginBtn">Login</button>
 
